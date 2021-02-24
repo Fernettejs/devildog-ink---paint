@@ -3,15 +3,25 @@
     padding: 0;
     box-sizing: border-box;
     scroll-behavior: smooth;
-    --primary-color:#cc0102;
-    --secondary-color:#4d4a4a;
+    --primary-color:#8b0000;
+    --secondary-color:#202020;
 }
-html {
-    scroll-padding-top: 118px; /* height of sticky header */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
   }
+/* html {
+    scroll-padding-top: 118px; /* height of sticky header 
+} */
 section {
     padding: 100px;
 }
+a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--primary-color);
+    text-decoration-style: double;}
 
 h2 {
     font-size: 3em;
@@ -20,39 +30,41 @@ h2 {
 p {
     color: white;
 }
-
 .line {
     width: 100%;
     height: 6px;
     background: black;
 }
+
 /*  */
 /* HEADER */
 /*  */
-#logo {
-    width: 120px;
+.logo {
+    width: 160px;
 }
 header{
-    position: fixed;
+    position: absolute;
     top: 0;
-    left: 0;
     width: 100%;
-    padding: 40px 100px;
     z-index: 1000;    
     display: flex;
-    justify-content: space-between;
     align-items: center;
     transition: 0.5s;
+    background: #202020;
+    box-shadow: 0 5px 20px rgba(0,0,0,0,0.1);
 }
 
-header.sticky{
-    background: rgb(77, 74, 74, .9) ;
+/* header.sticky{
+    background: rgb(32, 32, 32, .9) ;
     padding: 10px 100px;
     box-shadow: 0 5px 20px rgba(0,0,0,0,0.1);
 }
 header.sticky .logo{
     color: #111;
-}
+    width: 132px;
+    transition: 2.5s;
+} */
+
 header ul{
     position: relative;
     display: flex;
@@ -70,8 +82,13 @@ header a{
     text-decoration: none;
     font-size: 30px;
 }
-header.sticky ul li a{
+/* header.sticky ul li a{
 color: #fff;
+} */
+
+.menu-right {
+    position: relative;
+    right: 0;
 }
 
 /*  */
@@ -101,6 +118,9 @@ color: #fff;
   /* Add a red background color to navigation links on hover */
   .header a:hover, .subnav:hover .subnavbtn {
     background: var(--primary-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding: 5px;
   }
   
   /* Style the subnav content - positioned absolute */
@@ -108,6 +128,7 @@ color: #fff;
     display: none;
     position: absolute;
     background: var(--primary-color);
+    border-radius: 5px;
     z-index: 1;
   }
   
@@ -129,6 +150,9 @@ color: #fff;
   .subnav:hover .subnav-content {
     display: block;
   }
+  .subnav:hover a {
+      font-size: 20px;
+}
 
 /*  */
 /* BANNER */
@@ -172,7 +196,8 @@ color: #fff;
 
 .btn{
     position: relative;
-    background: var(--primary-color);
+    background: linear-gradient(to bottom, #a90329 0%,#8f0222 44%,#6d0019 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    /* background: var(--primary-color); */
     display: inline-block;
     color: #fff;
     margin-top: 20px;
@@ -183,6 +208,7 @@ color: #fff;
     letter-spacing: 2px;
     font-weight: 500;
     cursor: pointer;
+    border-radius: 10px;
 }
 
 /* ABOUT */
@@ -197,9 +223,9 @@ color: #fff;
     width: 100%;
     text-align: center;
     margin-bottom: 30px;
-    color: #000;
-    text-shadow: 0px 0px 6px rgb(212, 212, 212);
-    -webkit-text-stroke: .2px rgb(51, 51, 51);
+    color:var(--secodary-color);
+    background: white;
+    -webkit-text-stroke: .4px var(--primary-color);
     outline: #000;
     text-decoration: none;
 }
@@ -226,6 +252,8 @@ color: #fff;
 }
 img{
     max-width: 100%;
+    border-radius: 30px;
+
 }
 #the-artist {
     font-size: 1.2em;
@@ -247,7 +275,7 @@ img{
     height: 100px;
     width: 100px;
     border-radius: 100px;
-    background-color: var(--secondary-color);
+    background-color: white;
     display: block;
 }
 .social-box:hover{
@@ -264,8 +292,9 @@ img{
 .tattoos h1 {
     font-size: 4em;
     text-transform: uppercase;
-    text-shadow: 0px 0px 6px rgb(212, 212, 212);
-    -webkit-text-stroke: .2px rgb(51, 51, 51);
+    text-shadow: 0px 0px 2px white;
+    background: rgba(255, 255, 255, 0.5);
+    color: var(--secondary-color);
 }
 .header {
     text-align: center;
@@ -280,16 +309,16 @@ img{
   }
   
   /* Create two equal columns that sits next to each other */
-  .column {
+.column {
     -ms-flex: 50%; /* IE 10 */
     flex: 50%;
     padding: 0 4px;
-  }
-  
-  .column img {
+}
+
+.column img {
     margin-top: 8px;
     vertical-align: middle;
-  }
+}
 /* Style the buttons */
 .btn {
     border: none;
@@ -319,8 +348,74 @@ img{
 }
 
 .tattoos{
-    background: rgb(15,15,15);
-background: linear-gradient(90deg, rgba(15,15,15,1) 23%, rgba(121,9,9,1) 50%, rgba(15,15,15,1) 72%);
+    background: var(--secondary-color);
+}
+
+/* SERVICES */
+
+.services .content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.servicesBox h2 {
+    font-size: 32px !important;
+}
+.services .content .servicesBox{
+    padding: 40px 20px;
+    background: #222;
+    color: var(--secondary-color);
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+.services .content .servicesBox img{
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    background: rgba(24, 39, 54, 0.65);
+    opacity: 1;
+    display: block;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    background-color: white;
+    box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    z-index: 99;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    -webkit-transition: .3s ease-in-out;
+    transition: .3s ease-in-out;
+}
+.servicesBox a {
+    decoration:none
+}
+.servicesBox a:visited {
+    decoration: none;
+    color: white;
+}
+.services .content .servicesBox:hover{
+    background-color:var( --secondary-color);
+    color: white;
+    transform: scale(1.05);
+    transition: .2s ease-in-out;
+    box-shadow: 6px 6px 6px 6px rgba(0, 0, 0, 0.25);
+
+}
+.services .content .servicesBox:hover img{
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+}
+.services .content .servicesBox h2{
+    font-size: 20px;
+    font-weight: 60px;
+}
+
+.services p {
+    background:var(--secondary-color);
 }
 
 /* TESTIMONIALS */
@@ -337,11 +432,11 @@ background: linear-gradient(90deg, rgba(15,15,15,1) 23%, rgba(121,9,9,1) 50%, rg
     max-width: calc(50% - 40px);
     padding: 60px 40px;
     margin: 20px;
-    background: var(--primary-color);
+    background: white;
 }
 
-.testimonials .content .testimonialsBox p{
-    color: white;
+.testimonials p{
+    color: black;
     font-style: italic;
     font-size: 16px;
     font-weight: 300;
@@ -349,7 +444,7 @@ background: linear-gradient(90deg, rgba(15,15,15,1) 23%, rgba(121,9,9,1) 50%, rg
 .testimonials .content .testimonialsBox h3{
     margin-top: 40px;
     text-align: end;
-    color: white;
+    color: var(--primary-color);
     font-weight: 600;
     font-size: 20px;
     line-height: 1em;
@@ -397,7 +492,7 @@ background: linear-gradient(90deg, rgba(15,15,15,1) 23%, rgba(121,9,9,1) 50%, rg
 }
 .formBox form input[type="submit"]{
     max-width: 100px;
-    background: #091e2f;
+    background: var(--primary-color);
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -435,6 +530,9 @@ background: linear-gradient(90deg, rgba(15,15,15,1) 23%, rgba(121,9,9,1) 50%, rg
     color: #091e2f;
     margin-bottom: 0;
 }
+.contact p {
+    color: white;
+}
 
 .copyright{
     background: #000;
@@ -451,7 +549,7 @@ background: linear-gradient(90deg, rgba(15,15,15,1) 23%, rgba(121,9,9,1) 50%, rg
         padding: 20px 50px;
         z-index: 1000;
     }
-    .menu{
+    .menu, .subnav .subnavbtn {
         position: fixed;
         top: 75px;
         left: -100%;
@@ -540,9 +638,8 @@ background: linear-gradient(90deg, rgba(15,15,15,1) 23%, rgba(121,9,9,1) 50%, rg
         max-width: calc(100% - 20px);
         padding: 40px 20px;
         margin: 10px;
-        background: rgb(244,198, 137);
     }
-        .testimonials .content .testimonialsBox h3 {
+    .testimonials .content .testimonialsBox h3 {
             margin-top: 20px;
     }
     .contactInfo {
